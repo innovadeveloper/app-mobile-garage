@@ -7,6 +7,12 @@ android {
     namespace = "com.upn.garage"
     compileSdk = 34
 
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+        buildConfig = true
+    }
+
     defaultConfig {
         applicationId = "com.upn.garage"
         minSdk = 24
