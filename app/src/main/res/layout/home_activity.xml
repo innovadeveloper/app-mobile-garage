@@ -38,6 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:textSize="16sp"
             android:layout_gravity="right"
             android:text="¿Como llegar?" />
     </LinearLayout>
@@ -71,11 +72,33 @@
         <com.google.android.material.textview.MaterialTextView
             android:textColor="@color/primary_color"
             android:id="@+id/tvToViewGarage"
+            android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_marginTop="8dp"
             android:text="Ver Garage"
+            android:theme="@style/Theme.GarageAppMovil" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:id="@+id/tvToGoProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="8dp"
+            android:text="Ir al Pérfil"
+            android:theme="@style/Theme.GarageAppMovil" />
+        <com.google.android.material.textview.MaterialTextView
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:id="@+id/tvExit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="8dp"
+            android:text="Salir"
             android:theme="@style/Theme.GarageAppMovil" />
     </LinearLayout>
 

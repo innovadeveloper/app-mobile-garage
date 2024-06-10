@@ -8,7 +8,7 @@ import com.upn.garage.databinding.LoginActivityBinding
 import com.upn.garage.domain.ext.showToast
 import com.upn.garage.domain.utils.Utils
 
-class HomeActivity : AppCompatActivity(){
+class HomeActivity : BaseActivity(){
 
     lateinit var binding : HomeActivityBinding
 
@@ -22,6 +22,14 @@ class HomeActivity : AppCompatActivity(){
         }
         binding.llToGoGarageMap.setOnClickListener {
             this.showToast("To go to map... soon")
+        }
+
+        binding.tvToGoProfile.setOnClickListener {
+            super.onNextActivity(cls = ProfileActivity::class.java, bundle = null, isFinish = true)
+        }
+
+        binding.tvExit.setOnClickListener {
+            super.onNextActivity(cls = LoginActivity::class.java, bundle = null, isFinish = true)
         }
     }
 }

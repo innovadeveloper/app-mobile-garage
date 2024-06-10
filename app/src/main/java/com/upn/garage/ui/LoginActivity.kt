@@ -17,5 +17,9 @@ class LoginActivity : BaseActivity(){
         binding.btnLogin.setOnClickListener {
             super.onNextActivity(cls = HomeActivity::class.java, bundle = null, isFinish = true)
         }
+
+        binding.tvAccountRegister.setOnClickListener {
+            super.onNextActivity(cls = RegisterActivity::class.java, bundle = null, isFinish = true)
+        }
     }
 }

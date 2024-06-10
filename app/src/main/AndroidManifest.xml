@@ -28,6 +28,14 @@
             android:exported="true"
             android:name=".ui.HomeActivity">
         </activity>
+        <activity
+            android:exported="true"
+            android:name=".ui.RegisterActivity">
+        </activity>
+        <activity
+            android:exported="true"
+            android:name=".ui.ProfileActivity">
+        </activity>
     </application>
 
 </manifest>
