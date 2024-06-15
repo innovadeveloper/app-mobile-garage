@@ -21,7 +21,8 @@ class HomeActivity : BaseActivity(){
             this.showToast("View Garage... soon")
         }
         binding.llToGoGarageMap.setOnClickListener {
-            this.showToast("To go to map... soon")
+//            this.showToast("To go to map... soon")
+            super.onNextActivity(cls = MapActivity::class.java, bundle = null, isFinish = false)
         }
 
         binding.tvToGoProfile.setOnClickListener {
