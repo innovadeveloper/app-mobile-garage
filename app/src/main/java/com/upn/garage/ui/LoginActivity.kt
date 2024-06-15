@@ -24,34 +24,34 @@ class LoginActivity : BaseActivity(){
         setContentView(binding.root)
 
         binding.btnLogin.setOnClickListener {
-//            super.onNextActivity(cls = HomeActivity::class.java, bundle = null, isFinish = true)
+            super.onNextActivity(cls = HomeActivity::class.java, bundle = null, isFinish = true)
 //            createUserEntity()
 //            createNewSessionEntity()
-            if(binding.etUsername.text.isNullOrBlank() ||
-                binding.etPassword.text.isNullOrBlank()){
-                this@LoginActivity.showToast("¡Completa las casillas!")
-                return@setOnClickListener
-            }
-
-            val loginRequest = LoginRequest(
-                username = binding.etUsername.text.toString(),
-                password = binding.etPassword.text.toString()
-            )
-
-            GlobalScope.launch(Dispatchers.IO) {
-                try {
-                    val response = RetrofitInstance.apiService.postSession(loginRequest)
-                    withContext(Dispatchers.Main) {
-                        if(response.isValid){
-                            super.onNextActivity(cls = HomeActivity::class.java, bundle = null, isFinish = true)
-                        }else{
-                            this@LoginActivity.showToast(response.message)
-                        }
-                    }
-                } catch (e: Exception) {
-                    println("Error: ${e.message}")
-                }
-            }
+//            if(binding.etUsername.text.isNullOrBlank() ||
+//                binding.etPassword.text.isNullOrBlank()){
+//                this@LoginActivity.showToast("¡Completa las casillas!")
+//                return@setOnClickListener
+//            }
+//
+//            val loginRequest = LoginRequest(
+//                username = binding.etUsername.text.toString(),
+//                password = binding.etPassword.text.toString()
+//            )
+//
+//            GlobalScope.launch(Dispatchers.IO) {
+//                try {
+//                    val response = RetrofitInstance.apiService.postSession(loginRequest)
+//                    withContext(Dispatchers.Main) {
+//                        if(response.isValid){
+//                            super.onNextActivity(cls = HomeActivity::class.java, bundle = null, isFinish = true)
+//                        }else{
+//                            this@LoginActivity.showToast(response.message)
+//                        }
+//                    }
+//                } catch (e: Exception) {
+//                    println("Error: ${e.message}")
+//                }
+//            }
         }
 
         binding.tvAccountRegister.setOnClickListener {

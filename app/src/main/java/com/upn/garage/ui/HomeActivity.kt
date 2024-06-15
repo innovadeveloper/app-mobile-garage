@@ -18,7 +18,7 @@ class HomeActivity : BaseActivity(){
         setContentView(binding.root)
 
         binding.llToViewGarage.setOnClickListener {
-            this.showToast("View Garage... soon")
+            super.onNextActivity(cls = GarageActivity::class.java, bundle = null, isFinish = false)
         }
         binding.llToGoGarageMap.setOnClickListener {
 //            this.showToast("To go to map... soon")
