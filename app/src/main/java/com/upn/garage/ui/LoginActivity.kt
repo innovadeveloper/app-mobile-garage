@@ -1,11 +1,18 @@
 package com.upn.garage.ui
 
 import android.os.Bundle
+import com.upn.garage.data.network.RetrofitInstance
 import com.upn.garage.data.sqlite.dao.GarageDao
 import com.upn.garage.data.sqlite.dao.SessionDAO
 import com.upn.garage.databinding.LoginActivityBinding
 import com.upn.garage.domain.dto.GarageEntity
+import com.upn.garage.domain.dto.LoginRequest
 import com.upn.garage.domain.dto.SessionEntity
+import com.upn.garage.domain.ext.showToast
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class LoginActivity : BaseActivity(){
 
@@ -19,7 +26,32 @@ class LoginActivity : BaseActivity(){
         binding.btnLogin.setOnClickListener {
 //            super.onNextActivity(cls = HomeActivity::class.java, bundle = null, isFinish = true)
 //            createUserEntity()
-            createNewSessionEntity()
+//            createNewSessionEntity()
+            if(binding.etUsername.text.isNullOrBlank() ||
+                binding.etPassword.text.isNullOrBlank()){
+                this@LoginActivity.showToast("¡Completa las casillas!")
+                return@setOnClickListener
+            }
+
+            val loginRequest = LoginRequest(
+                username = binding.etUsername.text.toString(),
+                password = binding.etPassword.text.toString()
+            )
+
+            GlobalScope.launch(Dispatchers.IO) {
+                try {
+                    val response = RetrofitInstance.apiService.postSession(loginRequest)
+                    withContext(Dispatchers.Main) {
+                        if(response.isValid){
+                            super.onNextActivity(cls = HomeActivity::class.java, bundle = null, isFinish = true)
+                        }else{
+                            this@LoginActivity.showToast(response.message)
+                        }
+                    }
+                } catch (e: Exception) {
+                    println("Error: ${e.message}")
+                }
+            }
         }
 
         binding.tvAccountRegister.setOnClickListener {
@@ -72,7 +104,6 @@ class LoginActivity : BaseActivity(){
         for (session in allSessions2) {
             println("ID: ${session.id}, Username: ${session.username}, CreatedAt: ${session.createdAt}, State: ${session.state}")
         }
-
 
     }
     
