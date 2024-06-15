@@ -17,11 +17,11 @@ class ProfileActivity : BaseActivity(){
         binding = ProfileActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnEdit.setOnClickListener {
-            this.showToast("Editar pérfil .. soon")
-        }
+//        binding.btnEdit.setOnClickListener {
+//            this.showToast("Editar pérfil .. soon")
+//        }
 
-        binding.btnReturn.setOnClickListener {
+        binding.btnLogout.setOnClickListener {
             super.onNextActivity(cls = HomeActivity::class.java, bundle = null, isFinish = true)
         }
     }

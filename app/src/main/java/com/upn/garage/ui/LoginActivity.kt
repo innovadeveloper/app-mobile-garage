@@ -1,6 +1,7 @@
 package com.upn.garage.ui
 
 import android.os.Bundle
+import com.upn.garage.App
 import com.upn.garage.data.network.RetrofitInstance
 import com.upn.garage.data.sqlite.dao.GarageDao
 import com.upn.garage.data.sqlite.dao.SessionDAO
@@ -43,6 +44,8 @@ class LoginActivity : BaseActivity(){
                     val response = RetrofitInstance.apiService.postSession(loginRequest)
                     withContext(Dispatchers.Main) {
                         if(response.isValid){
+                            App.SESSION_ID = response.sessionID
+                            App.CURRENT_USER = response.user
                             super.onNextActivity(cls = HomeActivity::class.java, bundle = null, isFinish = true)
                         }else{
                             this@LoginActivity.showToast(response.message)

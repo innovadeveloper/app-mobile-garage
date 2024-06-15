@@ -7,26 +7,13 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.functions.Function2;
-
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.TypedValue;
-import android.view.Gravity;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.upn.garage.R;
 import com.upn.garage.domain.constants.MATRIX_ITEM;
@@ -50,7 +37,7 @@ public class GarageActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_garage);
+        setContentView(R.layout.garage_fragment);
 
         layout = findViewById(R.id.layoutSeat);
 
@@ -160,7 +147,7 @@ public class GarageActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view) {
         if ((int) view.getTag() == STATUS_AVAILABLE) {
             if (selectedIds.contains(view.getId() + ",")) {
-                selectedIds = selectedIds.replace(+view.getId() + ",", "");
+                selectedIds = selectedIds.replace(view.getId() + ",", "");
                 view.setBackgroundResource(R.drawable.ic_seats_book);
             } else {
                 selectedIds = selectedIds + view.getId() + ",";

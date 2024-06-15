@@ -2,6 +2,9 @@
 <resources>
     <color name="primary_color">#FF6200EE</color>
     <color name="secondary_color">#FF3700B3</color>
+    <color name="reserved">#F10000</color>
+    <color name="booked">#0026E5</color>
+    <color name="available">#868686</color>
 
 
     <color name="White_95">#95FFFFFF</color>
@@ -111,6 +114,7 @@
     <color name="Wheat">#F5DEB3</color>
     <color name="SandyBrown">#F4A460</color>
     <color name="Azure">#F0FFFF</color>
+    <color name="Azure2">#B3D7BA</color>
     <color name="Honeydew">#F0FFF0</color>
     <color name="AliceBlue">#F0F8FF</color>
     <color name="Khaki">#F0E68C</color>

@@ -30,17 +30,6 @@ if ($input && isset($input['username']) && isset($input['password'])) {
 
     if ($result->num_rows > 0) {
         // Credenciales válidas
-        $row = $result->fetch_assoc();
-        $user = array(
-            "id" => $row["id"],
-            "fullname" => $row["fullname"],
-            "username" => $row["username"],
-            "password" => $row["password"],
-            "createdAt" => $row["createdAt"],
-            "state" => $row["state"],
-            "role" => $row["role"]
-        );
-
         $createdAt = date('Y-m-d H:i:s');
         $state = 'active';
 
@@ -52,8 +41,7 @@ if ($input && isset($input['username']) && isset($input['password'])) {
             $response = array(
                 "message" => "sesión exitosa",
                 "isValid" => true,
-                "sessionId" => $sessionId,  // Incluir el ID de la sesión en la respuesta
-                "user" => $user  // Incluir el objeto User en la respuesta
+                "sessionId" => $sessionId  // Incluir el ID de la sesión en la respuesta
             );
         } else {
             $response = array(
