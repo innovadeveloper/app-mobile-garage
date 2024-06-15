@@ -1,8 +1,10 @@
 domingo 9 de julio 2024
 - TC2
-09:00 am - 11:00 am
-22:30 pm - 23:50 pm
+  09:00 am - 11:00 am
+  22:30 pm - 23:50 pm
 
-viernes 14 julio 2024
 - TC3
-8:30 pm - 
+  jueves 13 julio 2024
+  22:30 - 23:30 (1h)
+  viernes 14 julio 2024
+  20:30 - 22:45 (2h 15m )
