@@ -14,6 +14,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class LoginActivity : BaseActivity(){
 
@@ -46,6 +49,16 @@ class LoginActivity : BaseActivity(){
                         if(response.isValid){
                             App.SESSION_ID = response.sessionID
                             App.CURRENT_USER = response.user
+                            val sessionDAO = SessionDAO(this@LoginActivity)
+                            // Para insertar una nueva sesión
+                            val newSession = SessionEntity(username = loginRequest.username, password = loginRequest.password, createdAt = formatDateToString(Date()), state = "active")
+                            val newSessionId = sessionDAO.insertSessionEntity(newSession)
+
+                            val allSessions = sessionDAO.getAllSessionEntitys()
+                            for (session in allSessions) {
+
+                                println("ID: ${session.id}, Username: ${session.username}, CreatedAt: ${session.createdAt}, State: ${session.state}")
+                            }
                             super.onNextActivity(cls = HomeActivity::class.java, bundle = null, isFinish = true)
                         }else{
                             this@LoginActivity.showToast(response.message)
@@ -60,6 +73,13 @@ class LoginActivity : BaseActivity(){
         binding.tvAccountRegister.setOnClickListener {
             super.onNextActivity(cls = RegisterActivity::class.java, bundle = null, isFinish = true)
         }
+    }
+
+    fun formatDateToString(date: Date): String {
+        // Define the date format
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+        // Format the date to the string
+        return dateFormat.format(date)
     }
 
     fun createUserEntity(){

@@ -1,6 +1,7 @@
 package com.upn.garage.ui
 
 import android.content.Context
+import android.os.AsyncTask
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -50,18 +51,43 @@ class ProfileFragment : BaseFragment() {
             binding.tvRoleName.text = it.role
         }
         binding.btnLogout.setOnClickListener {
-            GlobalScope.launch(Dispatchers.IO) {
-                try {
-                    val response = RetrofitInstance.apiService.postLogout(LogoutRequest(App.SESSION_ID))
-                    withContext(Dispatchers.Main) {
-                        context.showToast(response.message)
-                        if(response.isValid)
-                            super.onNextActivity(cls = LoginActivity::class.java, bundle = null, isFinish = true)
-                    }
-                } catch (e: Exception) {
-                    println("Error: ${e.message}")
-                }
-            }
+            ProfileAsyncTask{
+                if(it)
+                    super.onNextActivity(cls = LoginActivity::class.java, bundle = null, isFinish = true)
+            }.execute()
+
+//            GlobalScope.launch(Dispatchers.IO) {
+//                try {
+//                    val response = RetrofitInstance.apiService.postLogout(LogoutRequest(App.SESSION_ID))
+//                    withContext(Dispatchers.Main) {
+//                        context.showToast(response.message)
+//                        if(response.isValid)
+//                            super.onNextActivity(cls = LoginActivity::class.java, bundle = null, isFinish = true)
+//                    }
+//                } catch (e: Exception) {
+//                    println("Error: ${e.message}")
+//                }
+//            }
+        }
+    }
+
+    class ProfileAsyncTask(val closure : ((isSuccess : Boolean)-> Unit)? = null) : AsyncTask<Void, Void, Boolean>() {
+
+        override fun onPreExecute() {
+            super.onPreExecute()
+            // Aquí puedes mostrar un ProgressDialog o realizar otra tarea previa
+        }
+
+        override fun doInBackground(vararg params: Void?): Boolean {
+            val response = RetrofitInstance.apiService.postLogout(LogoutRequest(App.SESSION_ID)).execute()
+            if(response.isSuccessful)
+                return response.body()?.isValid ?: false
+            return false
+        }
+
+        override fun onPostExecute(result: Boolean) {
+            super.onPostExecute(result)
+            closure?.invoke(result)
         }
     }
 }

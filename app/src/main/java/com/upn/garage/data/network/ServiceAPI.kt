@@ -13,22 +13,17 @@ import retrofit2.http.POST
 
 interface ApiService {
 
-    // curl -X POST -H "Content-Type: application/json" -d '{"username":"user1","password":"password2"}' http://192.168.0.103:8080/session.php
+    // curl -X POST -H "Content-Type: application/json" -d '{"username":"kenny","password":"kenny"}' http://192.168.0.105:8080/session.php
+    // curl -X POST -H "Content-Type: application/json" -d '{"username":"kenny","password":"prueba"}' http://192.168.0.105:8080/session.php
     // {"message":"sesión fallida","isValid":false, "id" : 1}
     @POST("session.php") // Reemplaza "endpoint" con la URL del endpoint POST de tu API
     suspend fun postSession(@Body loginRequest: LoginRequest): LoginResponse // La respuesta será un String del JSON
 
-    // curl -X POST -H "Content-Type: application/json" -d '{"id":1}' http://192.168.0.103:8080/logout.php
+    // curl -X POST -H "Content-Type: application/json" -d '{"id":14}' http://192.168.0.105:8080/logout.php
     @POST("logout.php") // Reemplaza "endpoint" con la URL del endpoint POST de tu API
-    suspend fun postLogout(@Body logoutRequest: LogoutRequest): ApiResponse // La respuesta será un String del JSON
+    fun postLogout(@Body logoutRequest: LogoutRequest): Call<ApiResponse> // La respuesta será un String del JSON
 
-    // curl -X POST -H "Content-Type: application/json" -d '{"username":"user1", "state" : "RESERVADO", "position" : 1}' http://192.168.0.103:8080/update_garage.php
-    //{"message":"registro exitoso","isValid":true}
-    @POST("update_garage.php") // Reemplaza "endpoint" con la URL del endpoint POST de tu API
-    suspend fun postUpdateGaragePosition(@Body updateGaragePositionRequest : UpdateGaragePositionRequest): ApiResponse // La respuesta será un String del JSON
-
-
-    // curl -X POST -H "Content-Type: application/json"  http://192.168.0.103:8080/list_garage.php
+    // curl -X POST -H "Content-Type: application/json"  http://192.168.0.105:8080/list_garage.php
     //[{"id":"1","username":"user1","position":"1","state":"RESERVADO"},{"id":"2","username":null,"position":"2","state":"DISPONIBLE"},{"id":"3","username":null,"position":"3","state":"DISPONIBLE"},{"id":"4","username":null,"position":"4","state":"ROW"},{"id":"5","username":null,"position":"5","state":"DISPONIBLE"},{"id":"6","username":null,"position":"6","state":"DISPONIBLE"},{"id":"7","username":null,"position":"7","state":"DISPONIBLE"},{"id":"8","username":null,"position":"8","state":"ROW"},{"id":"9","username":null,"position":"9","state":"DISPONIBLE"},{"id":"10","username":null,"position":"10","state":"DISPONIBLE"},{"id":"11","username":null,"position":"11","state":"DISPONIBLE"}]
     @POST("list_garage.php") // Reemplaza "endpoint" con la URL del endpoint POST de tu API
     suspend fun getGaragePositionList(): List<GaragePosition> // La respuesta será un String del JSON
