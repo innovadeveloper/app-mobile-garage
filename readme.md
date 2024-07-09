@@ -8,9 +8,7 @@ App Garage es una aplicación móvil desarrollada con Android Studio. La aplicac
 
 - **Login**: Interfaz para que los usuarios puedan iniciar sesión.
 - **Home**: Pantalla principal de la aplicación donde se muestran las funciones principales.
-- **Mapa**: Muestra la ubicación del garaje y otros puntos de interés relacionados.
 - **Perfil**: Sección donde los usuarios pueden ver y editar su información personal.
-- **Registro**: Permite a los nuevos usuarios registrarse en la aplicación.
 
 ## Tecnologías Utilizadas
 
@@ -30,5 +28,5 @@ App Garage es una aplicación móvil desarrollada con Android Studio. La aplicac
 ### Clonar el Repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/AppGarage.git
-cd AppGarage
+https://github.com/tu-usuario/app-mobile-garage.git
+cd app-mobile-garage
