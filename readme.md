@@ -7,7 +7,7 @@ App Garage es una aplicación móvil desarrollada con Android Studio. La aplicac
 ## Características
 
 - **Login**: Interfaz para que los usuarios puedan iniciar sesión.
-  ![Login](https://github.com/innovadeveloper/app-mobile-garage/blob/master/assets/tc_4/android/home.png)
+  ![Login](https://github.com/innovadeveloper/app-mobile-garage/blob/master/assets/tc_4/android/login.png)
 - **Home**: Pantalla principal de la aplicación donde se muestran las funciones principales.
   ![Home](https://github.com/innovadeveloper/app-mobile-garage/blob/master/assets/tc_4/android/home.png)
 - **Perfil**: Sección donde los usuarios pueden ver y editar su información personal.
