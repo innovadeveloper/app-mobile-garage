@@ -1,13 +1,34 @@
-domingo 9 de julio 2024
-- TC2
-  09:00 am - 11:00 am
-  22:30 pm - 23:50 pm
+# App Garage
 
-- TC3
-  jueves 13 julio 2024
-  22:30 - 23:30 (1h)
-  viernes 14 julio 2024
-  20:30 - 22:45 (2h 15m )
-- TC4
-  sábado 15 junio 2024
-  07:50 - 13:30 (5h:40m)
+## Descripción
+
+App Garage es una aplicación móvil desarrollada con Android Studio. La aplicación está diseñada para gestionar servicios de un garaje y utiliza servicios API REST creados con PHP y MySQL. Además, Docker se utiliza para manejar el entorno de desarrollo de manera eficiente.
+
+## Características
+
+- **Login**: Interfaz para que los usuarios puedan iniciar sesión.
+- **Home**: Pantalla principal de la aplicación donde se muestran las funciones principales.
+- **Mapa**: Muestra la ubicación del garaje y otros puntos de interés relacionados.
+- **Perfil**: Sección donde los usuarios pueden ver y editar su información personal.
+- **Registro**: Permite a los nuevos usuarios registrarse en la aplicación.
+
+## Tecnologías Utilizadas
+
+- **Android Studio**: IDE utilizado para el desarrollo de la aplicación móvil.
+- **PHP**: Lenguaje de programación utilizado para crear los servicios API REST.
+- **MySQL**: Base de datos utilizada para almacenar la información de la aplicación.
+- **Docker**: Herramienta utilizada para crear y gestionar el entorno de desarrollo.
+
+## Instalación
+
+### Requisitos Previos
+
+- Android Studio instalado
+- Docker instalado
+- PHP y MySQL configurados en Docker
+
+### Clonar el Repositorio
+
+```bash
+git clone https://github.com/tu-usuario/AppGarage.git
+cd AppGarage
